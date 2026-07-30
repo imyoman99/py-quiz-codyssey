@@ -88,7 +88,7 @@ python main.py
 - 공백 포함 입력 → 앞뒤 공백 제거 후 처리
 - 숫자가 아닌 입력(`abc`) / 범위 밖 숫자(`9`) / 빈 입력 → 안내 후 재입력
 - `Ctrl+C`, `EOF` 발생 시 → 데이터 저장 후 안전 종료
-- `state.json` 없음/손상 시 → 기본 퀴즈 데이터로 복구
+- `state.json` 없음/손상 시 → 기본 퀴즈 데이터로 실행
 
 ---
 
@@ -99,32 +99,30 @@ python main.py
 ### 5-1. Git 버전 관리 및 브랜치 전략 증명
 > 기능 단위 작업과 브랜치 병합, 원격 저장소 동기화 과정을 기록했습니다.
 * **[브랜치 생성 및 분리]**: `main` 브랜치에서 `feat/play` 등 기능 브랜치를 생성하고 이동한 화면 (`git branch` 확인 캡처)
-  * `![브랜치 작업](docs/screenshots/git_branch.png)`
+  * ![브랜치 작업](./docs/screenshots/git_branch.png)
 * **[커밋 및 병합 히스토리]**: 브랜치 작업 후 `main`으로 병합(Merge)한 내역 (`git log --oneline --graph` 터미널 캡처)
-  * `![Git 로그](docs/screenshots/git_log.png)`
+  * ![Git 로그](./docs/screenshots/git_log.png)
 * **[Clone & Pull 실습]**: 로컬 저장소를 별도로 Clone하고, 변경 사항을 Pull로 성공적으로 가져온 화면
-  * `![Pull 화면](docs/screenshots/git_pull.png)`
+  * ![Pull 화면](./docs/screenshots/git_pull.png)
 
 ### 5-2. 핵심 예외 처리 및 방어적 프로그래밍
 > 사용자의 잘못된 입력이나 돌발 상황에서도 프로그램이 비정상 종료되지 않도록 처리했습니다.
 * **[입력 오류 방어]**: 메뉴나 정답 입력 시 숫자가 아닌 문자(`abc`), 빈 엔터(공백), 범위 밖의 숫자(`9`)를 입력했을 때 다시 입력을 유도하는 화면
-  * `![입력 예외처리](docs/screenshots/error_input.png)`
+  * ![입력 예외처리](./docs/screenshots/error_input.png)
 * **[강제 종료(Ctrl+C) 방어]**: 실행 중 `Ctrl+C`를 눌렀을 때 에러를 뿜으며 튕기지 않고, "데이터를 안전하게 저장합니다" 메시지와 함께 정상 종료되는 화면
-  * `![강제종료 방어](docs/screenshots/error_ctrl_c.png)`
+  * ![강제종료 방어](./docs/screenshots/error_ctrl_c.png)
 
 ### 5-3. 퀴즈 게임 주요 기능
 > 요구사항과 보너스 과제(힌트, 랜덤 출제 등)를 적용한 실제 플레이 화면입니다.
 * **[문제 출제 및 힌트 사용]**: 랜덤으로 섞인 퀴즈가 출제되고, `h`를 눌러 힌트를 확인한 뒤 점수가 차감(또는 차등 부여)되는 것을 보여주는 화면
-  * `![퀴즈 풀기 및 힌트](docs/screenshots/play_hint.png)`
+  * ![퀴즈 풀기 및 힌트](./docs/screenshots/play_hint.png)
 * **[퀴즈 추가 및 삭제]**: 새로운 퀴즈를 직접 추가하고, 목록에서 번호를 선택해 삭제하는 흐름
-  * `![퀴즈 추가삭제](docs/screenshots/add_delete.png)`
+  * ![퀴즈 추가삭제](./docs/screenshots/add_delete.png)
 
 ### 5-4. 데이터 영속성 (Data Persistence) 증명
 > 프로그램 종료 후 재실행해도 데이터가 날아가지 않는 것을 증명합니다.
 * **[재실행 시 데이터 유지]**: 게임을 종료했다가 다시 실행한 직후, `5. 점수 확인` 메뉴를 눌러 이전 플레이 기록과 최고 점수가 그대로 남아있는 화면
-  * `![데이터 유지 증명](docs/screenshots/data_persistence.png)`
-* **[state.json 자동 복구]**: (선택 사항) `state.json` 파일의 내용을 고의로 망가뜨렸을 때(손상), 프로그램이 죽지 않고 기본 데이터로 복구했다는 안내 메시지가 뜨는 화면
-  * `![데이터 복구](docs/screenshots/data_recovery.png)
+  * ![데이터 유지 증명](./docs/screenshots/data_persistence.png)
 ---
 
 ## 6. 파일 구조
@@ -261,7 +259,6 @@ main ──●──●──●──────────●──●──
 | `feat/play` | 퀴즈 풀기 기능 개발 브랜치 |
 
 ### 커밋 히스토리
-<!-- ✏️ 완성 후 터미널에서 `git log --oneline --graph` 실행 결과를 복사해서 붙여넣기 -->
 ```
 *   a1b2c3d (HEAD -> main, origin/main) Docs: README 최종 작성
 * d4e5f6g Feat: 파일 저장/불러오기 구현
