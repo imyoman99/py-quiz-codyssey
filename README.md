@@ -100,7 +100,7 @@ python main.py
 > 기능 단위 작업과 브랜치 병합, 원격 저장소 동기화 과정을 기록했습니다.
 * **[브랜치 생성 및 분리]**: `main` 브랜치에서 `feat/play` 등 기능 브랜치를 생성하고 이동한 화면 (`git branch` 확인 캡처)
   * `![브랜치 작업](docs/screenshots/git_branch.png)`
-* **[커밋 및 병합 히스토리]**: 브랜치 작업 후 `main`으로 병합(Merge)한 내역 (`git log --oneline --graph` 터미널 캡처)
+* **[커밋 및 병합 히스토리]**: 브랜치 작업 후 `main`으로 병합(Merge)한 내역 (`git reflog` 터미널 캡처)
   * `![Git 로그](docs/screenshots/git_log.png)`
 * **[Clone & Pull 실습]**: 로컬 저장소를 별도로 Clone하고, 변경 사항을 Pull로 성공적으로 가져온 화면
   * `![Pull 화면](docs/screenshots/git_pull.png)`
@@ -261,17 +261,11 @@ main ──●──●──●──────────●──●──
 | `feat/play` | 퀴즈 풀기 기능 개발 브랜치 |
 
 ### 커밋 히스토리
-<!-- ✏️ 완성 후 터미널에서 `git log --oneline --graph` 실행 결과를 복사해서 붙여넣기 -->
+
 ```
-*   a1b2c3d (HEAD -> main, origin/main) Docs: README 최종 작성
-* d4e5f6g Feat: 파일 저장/불러오기 구현
-*   h7i8j9k Merge branch 'feat/play'
-|\
-| * l0m1n2o Feat: 퀴즈 풀기 기능 구현
-|/
-* p3q4r5s Feat: Quiz 클래스 작성
-* t6u7v8w Feat: 메뉴 기능 구현
-* x9y0z1a Init: 프로젝트 초기 설정
+* b8aa641 (HEAD -> main, origin/main, origin/feat/play, origin/HEAD, feat/play) Refactor code structure for improved readability and maintainability
+* 16e0d9b Fix: Remove cached files and apply .gitignore
+* 7567d23 Feat: 초기 파일 및 README 추가, 퀴즈 게임 기능 구현
 ```
 
 ### Git 명령어 (7종)
