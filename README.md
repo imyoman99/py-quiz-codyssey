@@ -1,5 +1,8 @@
 # 🎯 나만의 퀴즈 게임 (Python Quiz Game)
 
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 > 퀴즈로 재미있게 마스터하는 파이썬 기초 문법 챌린지! 퀴즈를 직접 추가하고, 최고 점수에 도전하세요.
 
 ---
@@ -328,7 +331,7 @@ main ──●──●──●──────────●──●──
 |------|------|
 | 언어 | Python 3.12.13 |
 | 에디터 | VSCode |
-| OS |  macOS
+| OS |  macOS | 
 | 버전 관리 | Git / GitHub |
 | 외부 라이브러리 | 없음 (표준 라이브러리 `json`, `random`, `datetime`만 사용) |
 
