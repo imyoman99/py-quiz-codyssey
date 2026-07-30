@@ -26,7 +26,6 @@
 - Git으로 기능 단위 커밋과 브랜치 병합을 경험하며 개발 과정을 기록했습니다.
 
 **개발 기간**: 2026.07.29 ~ 2026.07.30
-**개발 인원**: 1인
 
 ---
 
@@ -93,38 +92,85 @@ python main.py
 
 단순한 기능 구현을 넘어, 예외 처리와 데이터 영속성, 그리고 Git을 활용한 버전 관리 과정을 증명합니다.
 
+---
+
 ### 5-1. Git 버전 관리 및 브랜치 전략 증명
 > 기능 단위 작업과 브랜치 병합, 원격 저장소 동기화 과정을 기록했습니다.
-* **[브랜치 생성 및 분리]**: `main` 브랜치에서 `feat/play` 등 기능 브랜치를 생성하고 이동한 화면 (`git branch` 확인 캡처)
-  * ![브랜치 작업](docs/screenshots/git_branch.png)
-* **[커밋 및 병합 히스토리]**: 브랜치 작업 후 `main`으로 병합(Merge)한 내역 (`git reflog` 터미널 캡처)
-  * ![Git 로그](docs/screenshots/git_log.png)
-* **[Clone & Pull 실습]**: 로컬 저장소를 별도로 Clone하고, 변경 사항을 Pull로 성공적으로 가져온 화면
-  * ![Pull 화면](./docs/screenshots/git_pull.png)
+
+* **[10회 이상 커밋 증명]**
+  VS Code를 통해 확인한 10회 이상의 의미 있는 커밋 내역입니다.
+  <br>
+  ![커밋 10회 증명](./docs/screenshots/vscode_commits.png)
+  <br><br>
+
+* **[브랜치 생성 및 분리]**
+  `main` 브랜치에서 `feat/play` 등 기능 브랜치를 생성하고 이동한 화면 (`git branch` 확인 캡처)
+  <br>
+  ![브랜치 작업](./docs/screenshots/git_branch.png)
+  <br><br>
+
+* **[커밋 및 병합 히스토리]**
+  브랜치 작업 후 `main`으로 병합(Merge)한 내역 (`git reflog` 터미널 캡처)
+  <br>
+  ![Git 로그](./docs/screenshots/git_log.png)
+  <br><br>
+
+* **[Clone & Pull 실습]**
+  로컬 저장소를 별도로 Clone하고, 변경 사항을 Pull로 성공적으로 가져온 화면
+  <br>
+  ![Pull 화면](./docs/screenshots/git_pull.png)
+  <br><br>
+
+---
 
 ### 5-2. 핵심 예외 처리 및 방어적 프로그래밍
 > 사용자의 잘못된 입력이나 돌발 상황에서도 프로그램이 비정상 종료되지 않도록 처리했습니다.
-* **[입력 오류 방어]**: 메뉴나 정답 입력 시 숫자가 아닌 문자(`abc`), 빈 엔터(공백), 범위 밖의 숫자(`9`)를 입력했을 때 다시 입력을 유도하는 화면
-  * ![입력 예외처리](./docs/screenshots/error_input.png)
-* **[강제 종료(Ctrl+C) 방어]**: 실행 중 `Ctrl+C`를 눌렀을 때 에러를 뿜으며 튕기지 않고, "데이터를 안전하게 저장합니다" 메시지와 함께 정상 종료되는 화면
-  * ![강제종료 방어](./docs/screenshots/error_ctrl_c.png)
+
+* **[입력 오류 방어]**
+  메뉴나 정답 입력 시 숫자가 아닌 문자(`abc`), 빈 엔터(공백), 범위 밖의 숫자(`9`)를 입력했을 때 다시 입력을 유도하는 화면
+  <br>
+  ![입력 예외처리](./docs/screenshots/error_input.png)
+  <br><br>
+
+* **[강제 종료(Ctrl+C) 방어]**
+  실행 중 `Ctrl+C`를 눌렀을 때 에러를 뿜으며 튕기지 않고, "데이터를 안전하게 저장합니다" 메시지와 함께 정상 종료되는 화면
+  <br>
+  ![강제종료 방어](./docs/screenshots/error_ctrl_c.png)
+  <br><br>
+
+---
 
 ### 5-3. 퀴즈 게임 주요 기능
 > 요구사항과 보너스 과제(힌트, 랜덤 출제 등)를 적용한 실제 플레이 화면입니다.
-* **[문제 출제 및 힌트 사용]**: 랜덤으로 섞인 퀴즈가 출제되고, `h`를 눌러 힌트를 확인한 뒤 점수가 차감(또는 차등 부여)되는 것을 보여주는 화면
-  * ![퀴즈 풀기 및 힌트](./docs/screenshots/play_hint.png)
-* **[퀴즈 추가 및 삭제]**: 새로운 퀴즈를 직접 추가하고, 목록에서 번호를 선택해 삭제하는 흐름
-  * ![퀴즈 추가삭제](./docs/screenshots/add_delete.png)
+
+* **[문제 출제 및 힌트 사용]**
+  랜덤으로 섞인 퀴즈가 출제되고, `h`를 눌러 힌트를 확인한 뒤 점수가 차감(또는 차등 부여)되는 것을 보여주는 화면
+  <br>
+  ![퀴즈 풀기 및 힌트](./docs/screenshots/play_hint.png)
+  <br><br>
+
+* **[퀴즈 추가 및 삭제]**
+  새로운 퀴즈를 직접 추가하고, 목록에서 번호를 선택해 삭제하는 흐름
+  <br>
+  ![퀴즈 추가삭제](./docs/screenshots/add_delete.png)
+  <br><br>
+
+---
 
 ### 5-4. 데이터 영속성 (Data Persistence) 증명
 > 프로그램 종료 후 재실행해도 데이터가 날아가지 않는 것을 증명합니다.
-* **[재실행 시 데이터 유지]**: 게임을 종료했다가 다시 실행한 직후, `5. 점수 확인` 메뉴를 눌러 이전 플레이 기록과 최고 점수가 그대로 남아있는 화면
-  * ![데이터 유지 증명](./docs/screenshots/data_persistence.png)
+
+* **[재실행 시 데이터 유지]**
+  게임을 종료했다가 다시 실행한 직후, `5. 점수 확인` 메뉴를 눌러 이전 플레이 기록과 최고 점수가 그대로 남아있는 화면
+  <br>
+  ![데이터 유지 증명](./docs/screenshots/data_persistence.png)
+  <br><br>
+
 ---
 
 ## 6. 파일 구조
 
-```
+```text
 py-quiz-game/
 ├── main.py              # 프로그램 진입점 (QuizGame 실행)
 ├── quiz.py              # Quiz 클래스 (개별 퀴즈)      
@@ -134,6 +180,7 @@ py-quiz-game/
 ├── .gitignore           # Git 제외 파일 설정
 └── docs/
     └── screenshots/     # 실행 화면 및 개발 과정 증명 스크린샷
+        ├── vscode_commits.png   # 10회 이상 커밋 내역 증명 (추가)
         ├── git_branch.png       # 브랜치 생성 및 분리 확인
         ├── git_log.png          # 커밋 및 병합(Merge) 기록
         ├── git_pull.png         # Clone 및 Pull 실습 확인
