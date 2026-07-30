@@ -2,9 +2,6 @@
 
 > 퀴즈로 재미있게 마스터하는 파이썬 기초 문법 챌린지! 퀴즈를 직접 추가하고, 최고 점수에 도전하세요.
 
-![Python](https://img.shields.io/badge/Python-3.12)
-![License](https://img.shields.io/badge/외부라이브러리-없음-green)
-
 ---
 
 ## 📌 목차
@@ -250,7 +247,7 @@ main.py
 ```
 main ──●──●──●──────────●──●──●──  (안정 버전)
              \          /
-   feat/play  ●──●──●──   (퀴즈 풀기 기능 추가 후 병합)
+   feat/play  ●──●──●──   (기능 추가 및 제거 후 병합)
 ```
 
 | 브랜치 | 용도 |
@@ -259,7 +256,7 @@ main ──●──●──●──────────●──●──
 | `feat/play` | 퀴즈 풀기 기능 개발 브랜치 |
 
 ### 커밋 히스토리
-<!-- ✏️ 완성 후 터미널에서 `git log --oneline --graph` 실행 결과를 복사해서 붙여넣기 -->
+
 ```
 * b8aa641 (HEAD -> main, origin/main, origin/feat/play, origin/HEAD, feat/play) Refactor code structure for improved readability and maintainability
 * 16e0d9b Fix: Remove cached files and apply .gitignore
