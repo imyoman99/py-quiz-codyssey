@@ -40,30 +40,34 @@ class QuizGame:
 
     def set_default_quizzes(self):
         self.quizzes = [
-            Quiz("Python의 창시자는?", ["Guido van Rossum", "Linus Torvalds", "Bjarne Stroustrup", "James Gosling"], 1, "네덜란드 출신 개발자입니다."),
-            Quiz("다음 중 Python의 기본 데이터 타입이 아닌 것은?", ["int", "list", "array", "dict"], 3, "표준 라이브러리인 배열 모듈이 따로 있긴 하지만, 기본 타입은 아닙니다."),
-            Quiz("Python에서 함수를 정의할 때 사용하는 키워드는?", ["func", "def", "function", "define"], 2, "define의 약자입니다."),
-            Quiz("리스트의 마지막 요소를 제거하고 반환하는 메서드는?", ["remove()", "delete()", "pop()", "push()"], 3, "풍선이 터지는 소리를 생각해보세요."),
-            Quiz("문자열 길이를 반환하는 내장 함수는?", ["length()", "size()", "len()", "count()"], 3, "length의 앞 3글자입니다.")
+            Quiz("Python에서 메모를 남기는 '한 줄 주석'을 작성할 때 쓰는 기호는?", ["//", "/*", "#", "<!--"], 3, "SNS에서 해시태그를 달 때 사용하는 기호와 같습니다."),
+            Quiz("다음 중 Python의 기본 자료형이 아닌 것은?", ["int", "list", "array", "dict"], 3, "파이썬에서는 이것 대신 주로 리스트(list)를 사용합니다."),
+            Quiz("Python에서 함수를 만들 때 사용하는 키워드는?", ["func", "def", "function", "refine"], 2, "정의하다를 뜻하는 영어 단어와 연관었습니다."),
+            Quiz("리스트의 맨 마지막 값을 꺼내면서 지우는 메서드는?", ["remove()", "delete()", "pop()", "push()"], 3, "팝콘이 '톡' 하고 튀어 오르는 느낌의 단어입니다."),
+            Quiz("문자열이나 리스트의 길이를 알아내는 함수는?", ["length()", "size()", "len()", "count()"], 3, "길이를 뜻하는 영어 단어와 연관입니다.")
         ]
         self.best_score = 0
         self.history = []
 
     def run(self):
-        while True:
-            self.show_menu()
-            choice = input("👉 메뉴를 선택하세요 (1-6): ").strip()
-            if choice == '1': self.play_quiz()
-            elif choice == '2': self.add_quiz()
-            elif choice == '3': self.show_list()
-            elif choice == '4': self.delete_quiz()
-            elif choice == '5': self.show_score()
-            elif choice == '6':
-                print("🚪 게임을 종료합니다. 데이터가 저장되었습니다.")
-                self.save_state()
-                break
-            else:
-                print("❌ 올바른 번호를 입력해주세요.")
+        try:
+            while True:
+                self.show_menu()
+                choice = input("👉 메뉴를 선택하세요 (1-6): ").strip()
+                if choice == '1': self.play_quiz()
+                elif choice == '2': self.add_quiz()
+                elif choice == '3': self.show_list()
+                elif choice == '4': self.delete_quiz()
+                elif choice == '5': self.show_score()
+                elif choice == '6':
+                    print("🚪 게임을 종료합니다. 데이터가 저장되었습니다.")
+                    self.save_state()
+                    break
+                else:
+                    print("❌ 올바른 번호를 입력해주세요.")
+        except (KeyboardInterrupt, EOFError):
+            print("\n\n⚠️ 프로그램이 강제 종료되었습니다. 데이터를 안전하게 저장합니다.")
+            self.save_state()
 
     def show_menu(self):
         print("\n" + "="*30)
@@ -104,12 +108,14 @@ class QuizGame:
         for i, q in enumerate(quiz_pool, 1):
             print(f"\n[{i}/{num_questions}]")
             q.display()
+            hint_used = False
             
             while True:
                 ans = input("👉 정답을 입력하세요 (1-4, 힌트: h): ").strip()
                 if ans.lower() == 'h':
                     if q.hint:
                         print(f"💡 힌트: {q.hint}")
+                        hint_used = True
                     else:
                         print("💡 힌트가 없는 문제입니다.")
                     continue
@@ -123,7 +129,11 @@ class QuizGame:
             
             if q.check(ans_int):
                 print("✅ 정답입니다!")
-                earned_points += 10
+                if hint_used:
+                    print("   (힌트 사용으로 절반의 점수만 획득합니다.)")
+                    earned_points += 5
+                else:
+                    earned_points += 10
                 score += 1
             else:
                 print(f"❌ 오답입니다. 정답은 {q.answer}번입니다.")
@@ -145,8 +155,11 @@ class QuizGame:
 
     def add_quiz(self):
         print("\n➕ 새로운 퀴즈를 추가합니다.")
-        question = input("문제를 입력하세요: ").strip()
-        if not question: return
+        while True:
+            question = input("문제를 입력하세요: ").strip()
+            if question:
+                break
+            print("❌ 문제가 비어있습니다. 다시 입력해주세요.")
         
         choices = []
         for i in range(1, 5):
