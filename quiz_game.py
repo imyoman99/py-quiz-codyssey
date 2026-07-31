@@ -35,8 +35,14 @@ class QuizGame:
             "best_score": self.best_score,
             "history": self.history
         }
-        with open(self.filename, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+        try:
+            with open(self.filename + ".tmp", 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+            
+            os.replace(self.filename + ".tmp", self.filename)
+            
+        except Exception as e:
+            print(f"⚠️ 데이터 저장 중 오류가 발생했습니다: {e}")
 
     def set_default_quizzes(self):
         self.quizzes = [
